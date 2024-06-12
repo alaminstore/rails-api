@@ -61,9 +61,16 @@ class Api::V1::ArticlesController < ApplicationController
       article.destroy
       render json: {
         success: true,
-        code: 204
-        message:
+        code: 204,
+        message: "Article deleted"
       }
+    else
+      render json: {
+        success: false,
+        code: 404,
+        message: "please provide valid article"
+      }
+    end
   end
 
   private
